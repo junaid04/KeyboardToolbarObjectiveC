@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface CustomButton : UIButton
+
+@property (strong) id<ButtonDelegate>delegate;
+@property (nonatomic) NSTimer* timer;
 
 @end

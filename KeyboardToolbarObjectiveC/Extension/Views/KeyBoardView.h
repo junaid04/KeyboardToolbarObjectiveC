@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomButton.h"
+#import "ViewController.h"
 
 @interface KeyBoardView : UIView
 
