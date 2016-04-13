@@ -37,6 +37,7 @@
 		F22B80091CBBC23300B6BE7B /* UIViewController+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Ext.m"; sourceTree = "<group>"; };
 		F22B800B1CBBC69100B6BE7B /* KeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardView.h; sourceTree = "<group>"; };
 		F22B800C1CBBC69100B6BE7B /* KeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoardView.m; sourceTree = "<group>"; };
+		F292FA1D1CBE2926004DF118 /* ButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 				F22B80041CBBC05A00B6BE7B /* CustomButton.h */,
 				F22B80051CBBC05A00B6BE7B /* CustomButton.m */,
 				F22B80001CBBBFAC00B6BE7B /* Views */,
+				F292FA1D1CBE2926004DF118 /* ButtonDelegate.h */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";

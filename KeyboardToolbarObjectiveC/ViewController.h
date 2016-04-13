@@ -7,15 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ButtonDelegate.h"
 
-// MARK :- Protocol for using with delegate
-@protocol ButtonDelegate <NSObject>
-
--(void)SendTextToController:(UIButton *)sender :(NSString *)text;
-
-@end
-
-@interface ViewController : UIViewController <ButtonDelegate, UITextFieldDelegate>
+@interface ViewController : UIViewController <ButtonDelegate>
 
 {
     UIView* keyboardView;
