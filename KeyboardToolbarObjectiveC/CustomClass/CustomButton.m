@@ -12,6 +12,7 @@
 @implementation CustomButton
 
 @synthesize timer;
+@synthesize btnTitle;
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     
@@ -22,36 +23,38 @@
         self.layer.cornerRadius = 5.0;
         self.layer.borderWidth = 1.5;
         
-        self.delegate = [[ViewController alloc] init];
+       // self.delegate = [ViewController alloc];
 
     }
     return self;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
-    self.backgroundColor = [UIColor whiteColor];
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(keyTap) userInfo:nil repeats:YES];
+        
+        self.backgroundColor = [UIColor whiteColor];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(keyTap) userInfo:nil repeats:YES];
 
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    ViewController *vm = [[ViewController alloc] init];
-
+  
     if (self.tag == 0) {
-        
         self.backgroundColor = [UIColor blackColor];
         self.alpha = 0.75;
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //    MYGlobalVariable = self.titleLabel.text;
+        btnTitle = self.titleLabel.text;
+        
+        [[NSUserDefaults standardUserDefaults]setObject:btnTitle forKey:@"buttonTitle"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        NSLog(@"%@",btnTitle);
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
     }
     
-    else {
-        
-        vm.kbdmodifierFlag = 1;
-    }
     
     if (timer != nil) {
         
@@ -69,7 +72,7 @@
     }
 }
 
-#pragma mark button delegate function
+#pragma mark - button delegate function
 
 -(void)keyTap {
     

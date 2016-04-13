@@ -118,8 +118,8 @@
 			children = (
 				F22B80041CBBC05A00B6BE7B /* CustomButton.h */,
 				F22B80051CBBC05A00B6BE7B /* CustomButton.m */,
-				F22B80001CBBBFAC00B6BE7B /* Views */,
 				F292FA1D1CBE2926004DF118 /* ButtonDelegate.h */,
+				F22B80001CBBBFAC00B6BE7B /* Views */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";

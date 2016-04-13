@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+
 @protocol ButtonDelegate <NSObject>
 
+@required
 -(void)keyPressed:(UIButton *)sender;
 
 @end
