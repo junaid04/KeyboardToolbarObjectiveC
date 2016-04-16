@@ -24,6 +24,8 @@
 @property (nonatomic) BOOL modifierFlag;
 @property (nonatomic) NSInteger kbdmodifierFlag;
 @property (nonatomic) NSString *textLbl;
+@property (nonatomic) UIButton *btn;
+@property (nonatomic) NSInteger btnCheck;
 
 -(void)keyboardWillHide:(NSNotification *)notification;
 -(void)buttonText:(NSNotification *)notification;

@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.38431372549999998" green="0.63529411759999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cdr-nj-wGN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ChP-Mu-3Yr"/>
                             <constraint firstItem="cdr-nj-wGN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lm3-mL-cFV"/>

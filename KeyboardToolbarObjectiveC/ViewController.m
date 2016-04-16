@@ -21,21 +21,21 @@
 @synthesize kbdmodifierFlag;
 @synthesize textLbl;
 
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(keyboardWillHide:)
-     name:UIKeyboardWillHideNotification
-     object:nil];
+     addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     keyboardView = [self keyboardToolBar];
     keyboardView.backgroundColor = [UIColor grayColor];
     txtFld.keyboardAppearance = UIKeyboardAppearanceDark;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(buttonText:) name:@"ButtonPress" object:nil];
+
+    _btnCheck = 8;
+    
+ 
     
 }
 
@@ -70,13 +70,74 @@
     interfaceOrientation = YES;
 }
 
+
+- (void)modifierButton:(NSNotification *)notification {
+    
+    NSString *textVal = [[NSUserDefaults standardUserDefaults]valueForKey:@"buttonTitle"];
+    NSInteger btnTag = [[NSUserDefaults standardUserDefaults]integerForKey:@"buttonTag"];
+    if (btnTag != 0) {
+        
+        if (_btnCheck == 8) {
+            _btnCheck = btnTag;
+            NSLog(@"%ld",(long)btnTag);
+        }
+        else if (_btnCheck == btnTag)
+        {
+            NSLog(@"%ld",(long)btnTag);
+        }
+        else{
+            
+            _btnCheck = btnTag;
+            NSLog(@"5");
+            
+        }
+        
+    }
+    else {
+        
+        [txtFld insertText:textVal];
+        modifyValue = 0;
+    }
+    
+    
+    
+}
+
+
 - (void)buttonText:(NSNotification *)notification {
     
     NSString *textVal = [[NSUserDefaults standardUserDefaults]valueForKey:@"buttonTitle"];
-    
+    NSInteger btnTag = [[NSUserDefaults standardUserDefaults]integerForKey:@"buttonTag"];
     [txtFld insertText:textVal];
-    NSLog(@"notify");
-
+    modifyValue = 0;
+    
+    if (btnTag != 0) {
+        
+        if (_btnCheck == 8) {
+            _btnCheck = btnTag;
+            NSLog(@"%ld",(long)btnTag);
+        }
+        else if (_btnCheck == btnTag)
+        {
+            NSLog(@"%ld",(long)btnTag);
+        }
+        else{
+            
+            _btnCheck = btnTag;
+            NSLog(@"5");
+            
+        }
+        
+    }
+    else {
+        
+        [txtFld insertText:textVal];
+        modifyValue = 0;
+        _btnCheck = 8;
+    }
+    
+    
+    
 }
 
 #pragma mark - Button Delegate
@@ -108,66 +169,6 @@
             NSLog(@"3");
         
         }
-        
-        
-        
-        
-//        if (sender.tag == 1) {
-//            
-//            if (self.modifierFlag == YES) {
-//                
-//                modifyValue = 1;
-//            
-//            }
-//            else {
-//                
-//                modifyValue = 5;
-//            }
-//
-//        }
-//        
-//        if (sender.tag == 2) {
-//            
-//            if (self.modifierFlag == 0) {
-//                
-//                modifyValue = 2;
-//                
-//            }
-//            else {
-//                
-//                modifyValue = 5;
-//            }
-//            
-//        }
-//        
-//        if (sender.tag == 3) {
-//            
-//            if (self.modifierFlag == 0) {
-//                
-//                modifyValue = 3;
-//                
-//            }
-//            else {
-//                
-//                modifyValue = 5;
-//            }
-//            
-//        }
-//        
-//        if (sender.tag == 4) {
-//            
-//            if (self.modifierFlag == 0) {
-//                
-//                modifyValue = 4;
-//                
-//            }
-//            else {
-//                
-//                modifyValue= 5;
-//            }
-//            
-//        }
-        
         
 
     }

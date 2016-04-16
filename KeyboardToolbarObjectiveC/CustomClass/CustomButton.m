@@ -23,44 +23,53 @@
         self.layer.cornerRadius = 5.0;
         self.layer.borderWidth = 1.5;
         
-       // self.delegate = [ViewController alloc];
-
+        //self.delegate = [ViewController alloc];
+        
     }
     return self;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-        
-        self.backgroundColor = [UIColor whiteColor];
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.backgroundColor = [UIColor whiteColor];
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    if (self.tag == 0){
         timer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(keyTap) userInfo:nil repeats:YES];
-
+    }
+    
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  
+    
+    self.backgroundColor = [UIColor blackColor];
+    self.alpha = 0.75;
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [[NSUserDefaults standardUserDefaults]setInteger:self.tag forKey:@"buttonTag"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
     if (self.tag == 0) {
-        self.backgroundColor = [UIColor blackColor];
-        self.alpha = 0.75;
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //    MYGlobalVariable = self.titleLabel.text;
-        btnTitle = self.titleLabel.text;
         
+        btnTitle = self.titleLabel.text;
         [[NSUserDefaults standardUserDefaults]setObject:btnTitle forKey:@"buttonTitle"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
-        NSLog(@"%@",btnTitle);
-        
-        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
     }
     
+    else {
+        
+
+        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
+        
+    }
     
     if (timer != nil) {
         
         [timer invalidate];
     }
-       [self keyTap];
+    [self keyTap];
     
 }
 
@@ -76,7 +85,16 @@
 
 -(void)keyTap {
     
-    [self.delegate keyPressed:self];
+    if (self.tag == 0) {
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
+    }
+    
+  
+    
+    //  [self.delegate keyPressed:self];
+    
+    
 }
 
 
