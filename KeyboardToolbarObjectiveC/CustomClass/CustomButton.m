@@ -56,20 +56,24 @@
         [[NSUserDefaults standardUserDefaults]setObject:btnTitle forKey:@"buttonTitle"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
+        [self keyTap];
+        
     }
     
     else {
         
-
-        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
+        [[NSUserDefaults standardUserDefaults]setObject:self.titleLabel.text forKey:@"modifierTitle"];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"modifierPressed"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         
+        _modifierFlag = YES;
+        [[NSNotificationCenter defaultCenter]postNotificationName: @"ButtonPress" object:nil];
     }
     
     if (timer != nil) {
         
         [timer invalidate];
     }
-    [self keyTap];
     
 }
 

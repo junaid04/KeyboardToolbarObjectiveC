@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -25,14 +26,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3Z-y6-ykA">
+                                <rect key="frame" x="142" y="58" width="324" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.38431372549999998" green="0.63529411759999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cdr-nj-wGN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ChP-Mu-3Yr"/>
                             <constraint firstItem="cdr-nj-wGN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lm3-mL-cFV"/>
+                            <constraint firstItem="N3Z-y6-ykA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="QXR-v0-Zbk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N3Z-y6-ykA" secondAttribute="trailing" constant="114" id="gu3-YU-vex"/>
+                            <constraint firstItem="N3Z-y6-ykA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="122" id="t4n-ny-OGL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblModifier" destination="N3Z-y6-ykA" id="0qL-rU-K3f"/>
                         <outlet property="txtFld" destination="cdr-nj-wGN" id="G40-82-clZ"/>
                     </connections>
                 </viewController>

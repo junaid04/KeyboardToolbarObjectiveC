@@ -11,6 +11,7 @@
 #import "CustomButton.h"
 
 
+
 @interface ViewController : UIViewController <ButtonDelegate>
 
 {
@@ -20,11 +21,11 @@
 }
 
 @property (nonatomic) BOOL interfaceOrientation;
+@property (weak, nonatomic) IBOutlet UILabel *lblModifier;
 @property (weak, nonatomic) IBOutlet UITextField *txtFld;
 @property (nonatomic) BOOL modifierFlag;
 @property (nonatomic) NSInteger kbdmodifierFlag;
 @property (nonatomic) NSString *textLbl;
-@property (nonatomic) UIButton *btn;
 @property (nonatomic) NSInteger btnCheck;
 
 -(void)keyboardWillHide:(NSNotification *)notification;

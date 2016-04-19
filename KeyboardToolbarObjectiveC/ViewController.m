@@ -11,6 +11,7 @@
 
 
 @interface ViewController ()
+
 @end
 
 @implementation ViewController
@@ -32,10 +33,11 @@
     keyboardView.backgroundColor = [UIColor grayColor];
     txtFld.keyboardAppearance = UIKeyboardAppearanceDark;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(buttonText:) name:@"ButtonPress" object:nil];
-
+    
+    _lblModifier.text = @"Modifer State";
+    
     _btnCheck = 8;
     
- 
     
 }
 
@@ -70,70 +72,59 @@
     interfaceOrientation = YES;
 }
 
-
-- (void)modifierButton:(NSNotification *)notification {
-    
-    NSString *textVal = [[NSUserDefaults standardUserDefaults]valueForKey:@"buttonTitle"];
-    NSInteger btnTag = [[NSUserDefaults standardUserDefaults]integerForKey:@"buttonTag"];
-    if (btnTag != 0) {
-        
-        if (_btnCheck == 8) {
-            _btnCheck = btnTag;
-            NSLog(@"%ld",(long)btnTag);
-        }
-        else if (_btnCheck == btnTag)
-        {
-            NSLog(@"%ld",(long)btnTag);
-        }
-        else{
-            
-            _btnCheck = btnTag;
-            NSLog(@"5");
-            
-        }
-        
-    }
-    else {
-        
-        [txtFld insertText:textVal];
-        modifyValue = 0;
-    }
-    
-    
-    
-}
-
-
 - (void)buttonText:(NSNotification *)notification {
     
     NSString *textVal = [[NSUserDefaults standardUserDefaults]valueForKey:@"buttonTitle"];
     NSInteger btnTag = [[NSUserDefaults standardUserDefaults]integerForKey:@"buttonTag"];
-    [txtFld insertText:textVal];
+    NSString *modifierTitle = [[NSUserDefaults standardUserDefaults]valueForKey:@"modifierTitle"];
+    BOOL modifierPressed = [[NSUserDefaults standardUserDefaults]boolForKey:@"modifierPressed"];
+    
     modifyValue = 0;
     
     if (btnTag != 0) {
         
-        if (_btnCheck == 8) {
-            _btnCheck = btnTag;
-            NSLog(@"%ld",(long)btnTag);
-        }
-        else if (_btnCheck == btnTag)
-        {
-            NSLog(@"%ld",(long)btnTag);
-        }
-        else{
-            
-            _btnCheck = btnTag;
-            NSLog(@"5");
-            
-        }
+        _lblModifier.text = @"Modifier Pressed";
+        
+        //        if (_btnCheck == 8) {
+        //            _btnCheck = btnTag;
+        //            NSLog(@"%ld",(long)btnTag);
+        //        }
+        //        else if (_btnCheck == btnTag)
+        //        {
+        //            NSLog(@"%ld",(long)btnTag);
+        //        }
+        //        else{
+        //
+        //            _btnCheck = btnTag;
+        //            NSLog(@"5");
+        //
+        //        }
         
     }
     else {
         
+        if (modifierPressed == YES) {
+            
+            _lblModifier.text = [NSString stringWithFormat:@"%@%s",modifierTitle," is Pressed"];
+            
+            NSLog(@"%@", modifierTitle);
+            
+        }
+        else{
+            
+            _lblModifier.text = @"Modifier State";
+        
+        }
+        
+        
         [txtFld insertText:textVal];
         modifyValue = 0;
         _btnCheck = 8;
+        
+        
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"modifierPressed"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
     }
     
     
@@ -158,7 +149,7 @@
     
     else { // Modifiers, when key down, pressed to yes.
         //when key up , press to no
-
+        
         if (modifierFlag == false) {
             modifierFlag = true;
             NSLog(@"0");
@@ -167,10 +158,10 @@
         else {
             modifierFlag = false;
             NSLog(@"3");
-        
+            
         }
         
-
+        
     }
     
     NSLog(@"%ld",(long)self.modifierFlag);

@@ -15,5 +15,6 @@
 @property (strong) id<ButtonDelegate>delegate;
 @property (nonatomic) NSString *btnTitle;
 @property (nonatomic) NSTimer* timer;
+@property (nonatomic) BOOL modifierFlag;
 
 @end
