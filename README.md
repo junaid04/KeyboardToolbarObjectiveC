@@ -1,4 +1,4 @@
 # KeyboardToolbarObjectiveC
 Portrait              |        Landscape
 :-------------------------:|:-------------------------:
-![alt text](MockUp/portraitC.png)  |  ![alt text](MockUp/landscapeC.png)
+![alt text](Mockup/portraitC.png)  |  ![alt text](Mockup/landscapeC.png)
